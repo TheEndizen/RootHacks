@@ -14,6 +14,11 @@ run program<br/>
 build
 `npm run build`<br/>
 
+## Server Instructions
+
+cd into server folder
+`node index.js`
+
 ## PostgreSQL
 
 https://www.postgresql.org/download/
