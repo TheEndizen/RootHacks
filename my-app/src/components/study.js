@@ -3,7 +3,7 @@ import React from 'react';
   
 const Study = () => {
   return (
-    <div>
+    <div className='Component'>
       <h1>on page to study cards</h1>
     </div>
   );

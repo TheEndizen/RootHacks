@@ -49,7 +49,9 @@ function CreateCards() {
     setPrompt (event.target.value)
   }
   return (
-    <div className = "CreateCards">
+    <div className = "Component">
+      <h2>Make Flash Cards!</h2>
+      <p>Paste the text you want questions and answers to be generated from. Ex. Apples are colored red.</p>
       <input onChange = {change} placeholder="Enter text here"
       value = {prompt}/>
       <button onClick = {chatgptrequest}>Generate Flash cards </button>
