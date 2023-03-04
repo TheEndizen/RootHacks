@@ -12,6 +12,21 @@ app.get("/", (req, res) => {
 	res.json({ message: "hello world." });
 });
 
+app.post("/", async (req, res) => {
+	try {
+		console.log(req.body);
+		const { id } = req.body;
+
+		const newEntry = await pool.query(
+			"INSERT INTO Test (id) VALUES ($1) RETURNING *",
+			[id]
+		);
+		res.json(newEntry.rows[0]);
+	} catch (error) {
+		console.error(error.message);
+	}
+});
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

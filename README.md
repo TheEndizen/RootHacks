@@ -22,3 +22,14 @@ cd into server folder
 ## PostgreSQL
 
 https://www.postgresql.org/download/
+
+`CREATE DATABASE roothacks;`
+
+enter into the database
+`\c roothacks`
+
+create + populate your tables
+`\i server/createPopTables.sql`
+
+list all tables
+`\dt`
