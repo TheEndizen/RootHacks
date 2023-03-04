@@ -2,9 +2,8 @@
 
 RootHacks 2023 project.
 
-<<<<<<< HEAD
 Jackson is teaching me how to use git pog
-=======
+
 ## React Instructions
 
 run program
@@ -12,4 +11,3 @@ run program
 
 build
 `npm run build`
->>>>>>> 5211d5a (setting up react)
