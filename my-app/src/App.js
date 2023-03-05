@@ -9,12 +9,14 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 				{/* <img src={logo} className="App-logo" alt="logo" /> */}
-				<h1> Study Efficiently. Let us generate flash cards based off your text!</h1>
-        <p>
+				<h1>
+					{" "}
+					Study Efficiently. Let us generate flash cards based off your text!
+				</h1>
+				<p>
 					<CreateCards />
-					<Study />
+					{/* <Study /> */}
 					<InputTest />
-          
 				</p>
 			</header>
 		</div>
