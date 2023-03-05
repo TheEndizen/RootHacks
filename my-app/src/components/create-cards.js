@@ -26,18 +26,18 @@ const CreateCards = () => {
 						console.log(json); //If you want to check the response as JSON
 						console.log(json.choices[0].message.content); //HERE'S THE CHATBOT'S RESPONSE
 						jsonOutput = json.choices[0].message.content;
-						// e.preventDefault(); // prevent from refreshing
-						// try {
-						// 	const body = { jsonOutput };
-						// 	fetch("http://localhost:8080", {
-						// 		method: "POST",
-						// 		headers: { "Content-Type": "application/json" },
-						// 		body: JSON.stringify(body),
-						// 	});
-						// 	window.location = "/chatGPT";
-						// } catch (error) {
-						// 	console.error(error.message);
-						// }
+						e.preventDefault(); // prevent from refreshing
+						try {
+							const body = { jsonOutput };
+							fetch("http://localhost:8080", {
+								method: "POST",
+								headers: { "Content-Type": "application/json" },
+								body: JSON.stringify(body),
+							});
+							window.location = "/chatGPT";
+						} catch (error) {
+							console.error(error.message);
+						}
 					});
 				}
 			});
