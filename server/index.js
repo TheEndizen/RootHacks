@@ -27,6 +27,21 @@ app.post("/", async (req, res) => {
 	}
 });
 
+app.post("/chatGPT", async (req, res) => {
+	try {
+		console.log(req.body);
+		const { jsonOutput } = req.body;
+
+		const newEntry = await pool.query(
+			"INSERT INTO ChatGPTAnswers (ans) VALUES ($1) RETURNING *",
+			[jsonOutput]
+		);
+		res.json(newEntry.rows[0]);
+	} catch (error) {
+		console.error(error.message);
+	}
+});
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
