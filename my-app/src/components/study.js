@@ -10,28 +10,27 @@ import turnip_4 from "../images/turnip_4.jpg";
 import turnip_5 from "../images/turnip_5.jpg";
 
 
-function BackCard(){
-  // get answer from db
-  return "back card"
-}
-
 
 function FlipCard() {
 
   const [flip, setFlip] = useState(false);
   const [correctCnt, setCorrectCnt] = useState(0);
-  const [incorrectCnt, setIncorrectCnt] = useState(0);
-
+  
 const handleCorrect = () => {
   console.log("correct count:", correctCnt)
   setCorrectCnt(correctCnt + 1);
   setFlip(!flip)
 };
 
-const handleIncorrect = () => {
-  setIncorrectCnt(incorrectCnt + 1);
-  setFlip(!flip)
-};
+
+
+const BackCard = () => {
+  console.log("correct count:", correctCnt)
+  // get answer from db
+  return (
+    "back card")
+}
+
 
 const FrontCard = () => {
   if (correctCnt != 1 && correctCnt%2 == 0){
@@ -39,6 +38,7 @@ const FrontCard = () => {
     var num = Math.floor(Math.random() * (5 - 1 + 1))
     var path = ("turnip_"+ Math.floor(Math.random() * (5 - 1 + 1))) 
     console.log(path)
+    setCorrectCnt(0)
     if (num == 1){
       return (<div>
       front card
@@ -129,7 +129,7 @@ return (
                 background: '#f5d9fa',
                 fontWeight: 'bold',
                 borderRadius: '5px'
-            }} onClick={() => handleIncorrect() }>
+            }} onClick={() => setFlip(!flip)}>
                 Incorrect</button>
 
                 <button style={{

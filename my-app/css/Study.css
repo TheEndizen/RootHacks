@@ -1,5 +1,6 @@
 
 .Turnip {
     height: 40vmin;
+    max-width: 50;
     pointer-events: none;
   }
