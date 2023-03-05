@@ -2,6 +2,10 @@ import React from "react";
 import ReactCardFlip from "react-card-flip";
 import { useState } from "react";
 
+import React from "react";
+import ReactCardFlip from "react-card-flip";
+import { useState } from "react";
+
 function FrontCard() {
 	// get question from db
 	return <div>front card</div>;

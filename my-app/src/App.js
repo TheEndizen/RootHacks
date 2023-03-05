@@ -17,6 +17,7 @@ function App() {
 					<CreateCards />
 					{/* <Study /> */}
 					<InputTest />
+          
 				</p>
 			</header>
 		</div>
