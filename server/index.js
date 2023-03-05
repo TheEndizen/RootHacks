@@ -33,7 +33,7 @@ app.post("/chatGPT", async (req, res) => {
 		const { jsonOutput } = req.body;
 
 		const newEntry = await pool.query(
-			"INSERT INTO ChatGPTAnswers (ans) VALUES ($1) RETURNING *",
+			"INSERT INTO ChatGPTAns (ans) VALUES ($1) RETURNING *",
 			[jsonOutput]
 		);
 		res.json(newEntry.rows[0]);

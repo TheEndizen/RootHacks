@@ -7,9 +7,26 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+let jsonOutput;
+
+const onSubmitForm = async (e) => {
+	e.preventDefault(); // prevent from refreshing
+	try {
+		const body = { jsonOutput };
+		await fetch("http://localhost:8080", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(body),
+		});
+		window.location = "/ChatGPT";
+	} catch (error) {
+		console.error(error.message);
+	}
+};
+
 const CreateCards = () => {
-	let jsonOutput;
 	const chatgptrequest = async (e) => {
+		e.preventDefault(); // prevent from refreshing
 		try {
 			await fetch(`https://api.openai.com/v1/completions`, {
 				body: JSON.stringify({
@@ -22,7 +39,7 @@ const CreateCards = () => {
 				headers: {
 					"content-type": "application/json",
 					Authorization:
-						"Bearer " + "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",
+						"Bearer " + "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",
 				},
 			}).then((response) => {
 				console.log(response); //If you want to check the full response
@@ -31,18 +48,6 @@ const CreateCards = () => {
 						console.log(json); //If you want to check the response as JSON
 						console.log(json.choices[0].message.content); //HERE'S THE CHATBOT'S RESPONSE
 						jsonOutput = json.choices[0].message.content;
-						e.preventDefault(); // prevent from refreshing
-						try {
-							const body = { jsonOutput };
-							fetch("http://localhost:8080", {
-								method: "POST",
-								headers: { "Content-Type": "application/json" },
-								body: JSON.stringify(body),
-							});
-							window.location = "/chatGPT";
-						} catch (error) {
-							console.error(error.message);
-						}
 					});
 				}
 			});
