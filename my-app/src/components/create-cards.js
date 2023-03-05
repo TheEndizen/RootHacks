@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: 'UR-API-KEY-HERE',
+  apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
 
@@ -15,12 +15,13 @@ async function MakeRequest(prompt){
   }
   try {
     const completion = await openai.createCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [
+      'model': "gpt-3.5-turbo",
+      'messages': [
         {"role": "system", "content": "You are a helpful assistant that generates questions and answers from a text"},
         {"role": "user", "content": "create simple questions and answers separated by a new line using the text 'Apples are fruits that are red.' with at most 1 pairs of questions and answers"},
       ],
-        temperature: 0.6,
+        'temperature': 0.6,
+        
     });
     console.log("response:", completion.data.choices[0].text)
   
@@ -52,6 +53,7 @@ function CreateCards() {
     <div className = "Component">
       <h2>Make Flash Cards!</h2>
       <p>Paste the text you want questions and answers to be generated from. Ex. Apples are colored red.</p>
+      prompt is {prompt}
       <input onChange = {change} placeholder="Enter text here"
       value = {prompt}/>
       <button onClick = {chatgptrequest}>Generate Flash cards </button>
