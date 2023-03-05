@@ -2,15 +2,13 @@
 import React from 'react';
 import ReactCardFlip from 'react-card-flip';
 import { useState } from "react";
-import "../images/turnip_1.jpg";
-import "../images/turnip_2.jpg";
-import "../images/turnip_3.jpg";
-import "../images/turnip_4.jpg";
-import "../images/turnip_5.jpg";
 
+import turnip_1 from "../images/turnip_1.jpg";
+import turnip_2 from "../images/turnip_2.jpg";
+import turnip_3 from "../images/turnip_3.jpg";
+import turnip_4 from "../images/turnip_4.jpg";
+import turnip_5 from "../images/turnip_5.jpg";
 
-
-// Math.floor(Math.random() * (5 - 1 + 1)) + 1
 
 function BackCard(){
   // get answer from db
@@ -38,13 +36,40 @@ const handleIncorrect = () => {
 const FrontCard = () => {
   if (correctCnt != 1 && correctCnt%2 == 0){
     console.log("showing turnpip")
-    let path = "../images/turnip_"+ Math.floor(Math.random() * (5 - 1 + 1)) + 1 
-    return (
-      <div>
+    var num = Math.floor(Math.random() * (5 - 1 + 1))
+    var path = ("turnip_"+ Math.floor(Math.random() * (5 - 1 + 1))) 
+    console.log(path)
+    if (num == 1){
+      return (<div>
       front card
-       <img src={path} className="App-logo" alt="logo" />
-       </div>
-    )
+       <img src={turnip_1} className="Turnip" />
+       </div>)
+    }
+    if (num == 2){
+      return (<div>
+      front card
+       <img src={turnip_2} className="Turnip" />
+       </div>)
+    }
+    if (num == 3){
+      return (<div>
+      front card
+       <img src={turnip_3} className="Turnip" />
+       </div>)
+    }
+    if (num == 4){
+      return (<div>
+      front card
+       <img src={turnip_4} className="Turnip" />
+       </div>)
+    }
+    if (num == 5){
+      return (<div>
+      front card
+       <img src={turnip_5} className="Turnip" />
+       </div>)
+    }
+
 
   }
   else {
