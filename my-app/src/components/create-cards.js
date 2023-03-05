@@ -22,15 +22,15 @@ const CreateCards = () => {
 				headers: {
 					"content-type": "application/json",
 					Authorization:
-						"Bearer " + "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",
+						"Bearer " + "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",
 				},
 			}).then((response) => {
 				console.log(response); //If you want to check the full response
 				if (response.ok) {
 					response.json().then((json) => {
 						console.log(json); //If you want to check the response as JSON
-						console.log(json.choices[0].message.content); //HERE'S THE CHATBOT'S RESPONSE
-						jsonOutput = json.choices[0].message.content;
+						console.log(json.choices[0].text); //HERE'S THE CHATBOT'S RESPONSE
+						jsonOutput = json.choices[0].text;
 					});
 				}
 			});
