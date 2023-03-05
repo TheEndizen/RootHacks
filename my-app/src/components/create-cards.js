@@ -2,6 +2,11 @@ import { useState } from "react";
 
 import { Configuration, OpenAIApi } from "openai";
 
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
 const CreateCards = () => {
 	let jsonOutput;
 	const chatgptrequest = async (e) => {
@@ -11,21 +16,21 @@ const CreateCards = () => {
 					model: "text-davinci-003",
 					prompt: userInput,
 					temperature: 0,
-					max_tokens: 2000,
+					max_tokens: 200,
 				}),
 				method: "POST",
 				headers: {
 					"content-type": "application/json",
 					Authorization:
-						"Bearer " + "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",
+						"Bearer " + "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",
 				},
 			}).then((response) => {
 				console.log(response); //If you want to check the full response
 				if (response.ok) {
 					response.json().then((json) => {
 						console.log(json); //If you want to check the response as JSON
-						console.log(json.choices[0].message.content); //HERE'S THE CHATBOT'S RESPONSE
-						jsonOutput = json.choices[0].message.content;
+						console.log(json.choices[0].text); //HERE'S THE CHATBOT'S RESPONSE
+						jsonOutput = json.choices[0].text;
 					});
 				}
 			});
