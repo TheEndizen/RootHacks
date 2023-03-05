@@ -2,6 +2,11 @@ import { useState } from "react";
 
 import { Configuration, OpenAIApi } from "openai";
 
+const configuration = new Configuration({
+	apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
 const CreateCards = () => {
 	let jsonOutput;
 	const chatgptrequest = async (e) => {
@@ -17,7 +22,7 @@ const CreateCards = () => {
 				headers: {
 					"content-type": "application/json",
 					Authorization:
-						"Bearer " + "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",
+						"Bearer " + "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",
 				},
 			}).then((response) => {
 				console.log(response); //If you want to check the full response
